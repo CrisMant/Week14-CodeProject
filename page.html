@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Review App</title>
+    <style>
+        .movie {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+        }
+        .movie img {
+            max-width: 100%;
+        }
+        .stars {
+            display: inline-block;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="movie-list">
+            <div class="movie">
+                <img src="movie1.jpg" alt="Movie 1">
+                <h2>Fast & Furious</h2>
+                <p>Synopsis: Fast & Furious is an American media franchise centered on a series of action films that are largely concerned with street racing, heists, spies, and family.</p>
+                <div class="stars">
+                </div>
+                <div class="review-list">
+  
+                </div>
+                <div class="review-form">
+                    <h3>Leave a Review</h3>
+                    <form>
+                        <textarea rows="4" cols="50" placeholder="Write your review"></textarea>
+                        <br>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="movie">
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const movies = [
+            {
+                title: "Fast & Furious",
+                synopsis: "Fast & Furious is an American media franchise centered on a series of action films that are largely concerned with street racing, heists, spies, and family.",
+                image: "movie1.jpg",
+                rating: 0, 
+                reviews: []
+            },
+            {
+                title: "Paranormal Activity",
+                synopsis: "Soon after moving into a suburban tract home, Katie (Katie Featherston) and Micah (Micah Sloat) become increasingly disturbed by what appears to be a supernatural presence. Hoping to capture evidence of it on film, they set up video cameras in the house but are not prepared for the terrifying events that follow.",
+                image: "movie2.jpg",
+                rating: 0, 
+                reviews: []
+            },
+            {
+                title: "Crazy Rich Asians",
+                synopsis: "Rachel Chu, an American-born Chinese NYU professor, travels with her boyfriend, Nick to his hometown in Singapore for his best friend's wedding. Before long, his secret is out: Nick's family is wealthy, and he's considered the most eligible bachelor in Asia. Every single woman is incredibly jealous of Rachel and wants to bring her down",
+                image: "movie3.jpg",
+                rating: 0, 
+                reviews: []
+            },
+        ];
+
+        function renderMovie(movie) {
+            const movieElement = document.createElement("div");
+            movieElement.classList.add("movie");
+            return movieElement;
+        }
+
+        function renderMovies() {
+            const movieList = document.querySelector(".movie-list");
+            movieList.innerHTML = "";
+            movies.forEach(movie => {
+                const movieElement = renderMovie(movie);
+                movieList.appendChild(movieElement);
+            });
+        }
+
+        renderMovies();
+    </script>
+    <script src="page.js"></script>
+    <script src="page.css"></script>
+</body>
+</html>
